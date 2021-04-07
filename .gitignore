@@ -1,0 +1,6 @@
+build/
+WebContent/WEB-INF/lib/jstl-1.2.jar
+Libraries
+.classpath
+.project
+.settings/
