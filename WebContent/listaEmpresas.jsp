@@ -9,13 +9,22 @@
 <title>Insert title here</title>
 </head>
 <body>
+
+	<c:if test="${not empty empresa}">
+       Empresa ${ empresa } cadastrada com sucesso!
+    </c:if>
+
 	Lista de Empresas:
 	<br />
 	<ul>
-		<c:forEach var="empresa" items="${empresas}">
-			<li>${empresa.nome } - <fmt:formatDate value="${empresa.dataAbertura }" pattern="dd/MM/yyyy"/></li>
+		<c:forEach items="${ empresas }" var="empresa" varStatus="indice">
+			<li>
+				${ empresa.nome } 
+				- <fmt:formatDate value="${empresa.dataAbertura}" pattern="dd/MM/yyyy"/>
+				<a href="/gerenciador/mostrarEmpresa?id=${empresa.id}">Editar</a>
+				<a href="/gerenciador/removeEmpresa?id=${empresa.id}">Excluir</a>
+			</li>
 		</c:forEach>
-
 	</ul>
 </body>
 </html>
